@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    var readlineSync=require('readline-sync');
+var userName=readlineSync.question("What is your name? ");
+console.log("Welcome "+userName+" to the MARVEL quiz");
+console.log("a.Thor b.Iron Man c.Captain America");
+var question=readlineSync.question("Who is your favourite superhero? (type a or b or c) ");
+var score=0;
+if(question=="a")
+{
+  console.log("You chose THOR as your favourite superhero! ");
+  var ques1={question:"Where was Thor born? ",answer:"Asgard"};var ques2={question:"What was THOR god of ",answer:"God of thunder"};
+  var ques3={question:"What was THOR'S brothers name? ",answer:"Loki"};
+  var ques4={question:"What was THOR'S weapon called? ",answer:"Mjolnir"};
+  var arr=[ques1,ques2,ques3,ques4];
+    for(var i=0;i<arr.length;i++)
+{
+  var result=arr[i];
+  marvel(result.question,result.answer);
+}
+
+}
+else if(question=="b")
+{
+  console.log("You chose Iron Man as your favourite superhero! ");
+  var ques1={question:"What was Iron Man's real name? ",answer:"Tony Stark"};
+  var ques2={question:"What was Iron Man's first suit called? ",answer:"Mark 1"};
+  var ques3={question:"What was Iron Man's fathers name? ",answer:"Howard Stark"};
+  var ques4={question:"What was the name of the bad AI that Iron Man and Hulk created? ",answer:"Ultron"};
+  var arr=[ques1,ques2,ques3,ques4];
+for(var i=0;i<arr.length;i++)
+{
+  var result=arr[i];
+  marvel(result.question,result.answer);
+}
+}
+else if(question=="c")
+{
+  console.log("You chose Captain America as your favourite superhero! ");
+  var ques1={question:"What was Captain America's real name? ",answer:"Steve Rogers"};
+  var ques2={question:"What was Captain America's shield made of? ",answer:"Vibranium"};
+  var ques3={question:"What was Captain America's friend's name who he lost in world war 2? ",answer:"Bucky Barnes"};
+  var ques4={question:"Where was Captain America from? ",answer:"Brooklyn"};
+  var arr=[ques1,ques2,ques3,ques4];
+  for(var i=0;i<arr.length;i++)
+   {
+    var result=arr[i];
+    marvel(result.question,result.answer);
+   }
+   
+
+}
+else
+{
+  console.log("Aww you did not choose the right option please start the game again!");
+}
+
+function marvel(question,answer)
+{
+  var ques=readlineSync.question(question);
+  if(ques==answer)
+  {
+    console.log("You are right!");
+    score=score+1;
+    console.log("Your score is "+score);
+    console.log("----------------");
+  }
+  else
+  {
+    console.log("You are wrong");
+    console.log("Your score is "+score);
+    console.log("----------------");
+  }
+}
+console.log("Your final score is "+score);
+console.log("Thank you "+userName+" for playing this game!");
+</body>
+</html>
